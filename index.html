@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيد ميلاد سعيد يا صديقي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #f8fafc;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Canvas Background */
+        #network-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Image Frame */
+        .image-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            background-color: #1e293b;
+        }
+
+        .image-frame::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(15, 23, 42, 0.9) 100%);
+            pointer-events: none;
+        }
+
+        .image-frame:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.2);
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .image-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            transition: bottom 0.5s ease;
+            z-index: 10;
+            color: #e2e8f0;
+        }
+
+        .image-frame:hover .image-caption {
+            bottom: 0;
+        }
+
+        /* Gold Text Accent */
+        .text-gold {
+            color: #d4af37;
+        }
+        .border-gold {
+            border-color: #d4af37;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-yellow-600 selection:text-white">
+
+    <!-- خلفية تفاعلية تعبر عن الاتصال الرقمي -->
+    <canvas id="network-canvas"></canvas>
+
+    <!-- القسم الأول: الواجهة الترحيبية -->
+    <section class="min-h-screen flex flex-col items-center justify-center relative px-4">
+        <div class="text-center max-w-3xl reveal active">
+            <div class="mb-6 flex justify-center">
+                <i data-lucide="globe-2" class="w-16 h-16 text-gold opacity-80"></i>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-wide">
+                مسافات الجغرافيا، <br> <span class="text-gold mt-4 block">وقرب الأثر</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 mt-6 leading-relaxed max-w-2xl mx-auto">
+                في عالمنا الرقمي، قد لا نلتقي وجهاً لوجه، وقد تفصلنا الحدود والبلدان، لكن الاحترام والتقدير يبنيان جسوراً أقوى من المسافات.
+            </p>
+            <div class="mt-12">
+                <a href="#gallery" class="inline-flex items-center gap-2 px-8 py-3 border border-slate-600 hover:border-gold hover:text-gold rounded-full transition-all duration-300 text-sm tracking-wider">
+                    <span>اكتشف المفاجأة</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- القسم الثاني: مساحة الصور المؤثرة (المعرض) -->
+    <section id="gallery" class="py-24 px-4 md:px-8 bg-slate-900/50 backdrop-blur-sm border-t border-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">ملامح من بعيد</h2>
+                <div class="w-16 h-1 bg-gold mx-auto mb-6" style="background-color: #d4af37;"></div>
+                <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    رغم أنني لم أرك سوى عبر الشاشات والصور، إلا أن هذه الزوايا مخصصة للاحتفاء بوجودك كأخ وصديق إلكتروني يحظى بكامل الاحترام.
+                </p>
+            </div>
+
+            <!-- شبكة الصور (البورتفوليو) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- الصورة الأولى -->
+                <div class="reveal">
+                    <div class="image-frame h-96">
+                        <!-- غير الرابط هنا وضع رابط صورة صديقك -->
+                        <img src="/img/photo_2026-02-26_20-57-10 (2).jpg" alt="صورة الصديق 1" onerror="this.src='https://via.placeholder.com/600x800?text=ضع+الصورة+هنا'">
+                        <div class="image-caption">
+                            <h3 class="text-xl font-bold mb-1">حضور مميز</h3>
+                            <p class="text-sm text-slate-300">صورة تعكس شخصيتك المحترمة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الصورة الثانية (مركزية ومختلفة الحجم قليلاً) -->
+                <div class="reveal md:translate-y-8">
+                    <div class="image-frame h-96 md:h-[28rem] border border-slate-700">
+                        <!-- غير الرابط هنا وضع رابط صورة صديقك -->
+                        <img src="/img/photo_2026-02-26_20-57-10.jpg" alt="صورة الصديق 2" onerror="this.src='https://via.placeholder.com/600x800?text=ضع+الصورة+هنا'">
+                        <div class="image-caption">
+                            <h3 class="text-xl font-bold mb-1 text-gold">ذكرى عابرة</h3>
+                            <p class="text-sm text-slate-300">أول صورة رأيتها لك وكونت بها انطباعاً طيباً</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الصورة الثالثة -->
+                <div class="reveal lg:translate-y-4">
+                    <div class="image-frame h-96">
+                        <!-- غير الرابط هنا وضع رابط صورة صديقك -->
+                        <img src="/img/photo_2026-02-26_20-57-11.jpg" alt="صورة الصديق 3" onerror="this.src='https://via.placeholder.com/600x800?text=ضع+الصورة+هنا'">
+                        <div class="image-caption">
+                            <h3 class="text-xl font-bold mb-1">أخوة عبر المسافات</h3>
+                            <p class="text-sm text-slate-300">ابتسامة تعبر الحدود الجغرافية</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- القسم الثالث: التهنئة المحترمة والرسالة الختامية -->
+    <section class="py-24 px-4 text-center bg-slate-900">
+        <div class="max-w-3xl mx-auto reveal border border-slate-800 rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <!-- عنصر زينة -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-600/10 rounded-bl-full"></div>
+            <div class="absolute bottom-0 left-0 w-32 h-32 bg-slate-700/10 rounded-tr-full"></div>
+            
+            <i data-lucide="calendar-heart" class="w-12 h-12 text-gold mx-auto mb-6"></i>
+            <h2 class="text-3xl font-bold mb-6">سنة سعيدة يا صديقي</h2>
+            <p class="text-lg text-slate-300 leading-loose">
+                بمناسبة يوم ميلادك، أردت أن أقدم لك شيئاً مختلفاً ومميزاً يعبر عن تقديري لمعرفتك. <br>
+                أتمنى لك في عامك الجديد التوفيق، النجاح، وتحقيق كل طموحاتك. وأن تظل كما عرفتك دائماً، شخصاً محترماً وراقياً. <br>
+                كل عام وأنت بخير، من وراء الشاشات ومن دولة أخرى، أتمنى لك يوماً سعيداً وعمراً مديداً في طاعة الله.
+            </p>
+            
+            <div class="mt-10 pt-8 border-t border-slate-800">
+                <p class="text-sm text-slate-500">مع خالص التقدير، صديقك الإلكتروني.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-slate-600 text-sm border-t border-slate-800">
+        <p>صُنع بتقدير بمناسبة يوم ميلادك &copy; 2026</p>
+    </footer>
+
+    <!-- سكربتات التفاعل والتأثيرات -->
+    <script>
+        // تفعيل الأيقونات
+        lucide.createIcons();
+
+        // تأثير الظهور عند التمرير (Scroll Reveal)
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // تشغيل أولي
+
+        // Canvas Network Animation (تأثير النقاط المترابطة المعبر عن الإنترنت)
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let w, h;
+
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.vx = (Math.random() - 0.5) * 0.5; // حركة بطيئة جداً وهادئة
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 1.5 + 0.5;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > w) this.vx *= -1;
+                if (this.y < 0 || this.y > h) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(148, 163, 184, 0.5)'; // لون رمادي مزرق هادئ
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            // عدد النقاط يعتمد على حجم الشاشة
+            let numberOfParticles = (w * h) / 15000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+            
+            // رسم الخطوط بين النقاط القريبة (الترابط)
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(148, 163, 184, ${0.1 - dist/1200})`; // خطوط شفافة جداً
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
